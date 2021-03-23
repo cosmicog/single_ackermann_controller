@@ -62,7 +62,7 @@ namespace ackermann_steering_controller
   public:
 
     /// Integration function, used to integrate the odometry:
-    typedef boost::function<void(double, double)> IntegrationFunction;
+    typedef boost::function<void(double, double, double)> IntegrationFunction;
 
     /**
      * \brief Constructor
@@ -171,7 +171,7 @@ namespace ackermann_steering_controller
      * \param linear  Linear  velocity   [m] (linear  displacement, i.e. m/s * dt) computed by encoders
      * \param angular Angular velocity [rad] (angular displacement, i.e. m/s * dt) computed by encoders
      */
-    void integrateExact(double linear, double angular);
+    void integrateExact(double linear, double angular, double radius);
 
     /**
      *  \brief Reset linear and angular accumulators
