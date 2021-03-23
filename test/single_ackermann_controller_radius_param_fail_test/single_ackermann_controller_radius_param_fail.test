@@ -1,0 +1,19 @@
+<launch>
+  <!-- Load common test stuff -->
+  <include file="$(find single_ackermann_controller)/test/common/launch/ackermann_steering_common.launch" />
+
+  <!-- Override robot_description with bad urdf -->
+  <param name="robot_description"
+      command="$(find xacro)/xacro '$(find single_ackermann_controller)/test/common/urdf/ackermann_steering_bot_sphere_wheels.xacro'" />
+  <!-- Don't provide the radius parameter, so the controller should break -->
+  <!-- <param name="diffbot_controller/wheel_radius" value="0.11"/> -->
+
+  <!-- Controller test -->
+  <test test-name="single_ackermann_controller_wheel_radius_param_fail_test"
+        pkg="single_ackermann_controller"
+        type="single_ackermann_controller_fail_test"
+        time-limit="10.0">
+    <remap from="cmd_vel" to="ackermann_steering_bot_controller/cmd_vel" />
+    <remap from="odom" to="ackermann_steering_bot_controller/odom" />
+  </test>
+</launch>

@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package ackermann_steering_controller
+Changelog for package single_ackermann_controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 0.18.1 (2020-12-03)
@@ -13,7 +13,7 @@ Changelog for package ackermann_steering_controller
 * Clean dependencies of diff_drive_controller package
 * Remove (unneeded?) dependencies on rosunit and gtest
 * Format package.xml and CMakeLists.txt according to ros_control pkgs
-* Clean dependencies of ackermann_steering_controller pkg
+* Clean dependencies of single_ackermann_controller pkg
 * Contributors: Mateus Amarante
 
 0.17.0 (2020-05-12)
@@ -40,7 +40,7 @@ Changelog for package ackermann_steering_controller
 
 0.15.1 (2020-03-09)
 -------------------
-* Fix test for ackermann_steering_controller
+* Fix test for single_ackermann_controller
 * Use nullptr (`#447 <https://github.com/ros-controls/ros_controllers/issues/447>`_)
 * Update null link pointer error message
 * removed cyclic debug output from ackermann_steering_bot
@@ -58,12 +58,12 @@ Changelog for package ackermann_steering_controller
 -------------------
 * Sync version number with rest of repo
 * migrate to new URDF shared pointer types
-* Add ackermann_steering_controller (`#356 <https://github.com/ros-controls/ros_controllers/issues/356>`_)
+* Add single_ackermann_controller (`#356 <https://github.com/ros-controls/ros_controllers/issues/356>`_)
 * Contributors: Bence Magyar, Mathias Lüdtke, Mori
 
 * Sync version number with rest of repo
 * migrate to new URDF shared pointer types
-* Add ackermann_steering_controller (`#356 <https://github.com/ros-controls/ros_controllers/issues/356>`_)
+* Add single_ackermann_controller (`#356 <https://github.com/ros-controls/ros_controllers/issues/356>`_)
 * Contributors: Bence Magyar, Mathias Lüdtke, Mori
 
 0.14.2 (2018-10-23)

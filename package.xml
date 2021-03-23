@@ -3,7 +3,7 @@
   href="http://download.ros.org/schema/package_format3.xsd"
   schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>ackermann_steering_controller</name>
+  <name>single_ackermann_controller</name>
   <version>0.18.1</version>
   <description>Controller for a steer drive mobile base.</description>
 
@@ -13,7 +13,7 @@
   <license>BSD</license>
 
   <url type="bugtracker">https://github.com/ros-controls/ros_controllers/issues</url>
-  <url type="repository">https://github.com/ros-controls/ros_controllers/ackermann_steering_controller</url>
+  <url type="repository">https://github.com/ros-controls/ros_controllers/single_ackermann_controller</url>
 
   <author email="p595201m@mail.kyutech.jp">Masaru Morita</author>
 
@@ -45,6 +45,6 @@
   <test_depend>xacro</test_depend>
 
   <export>
-    <controller_interface plugin="${prefix}/ackermann_steering_controller_plugins.xml"/>
+    <controller_interface plugin="${prefix}/single_ackermann_controller_plugins.xml"/>
   </export>
 </package>

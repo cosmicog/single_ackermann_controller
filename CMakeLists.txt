@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(ackermann_steering_controller)
+project(single_ackermann_controller)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
@@ -47,7 +47,7 @@ include_directories(
   ${urdfdom_INCLUDE_DIRS}
 )
 
-add_library(${PROJECT_NAME} src/ackermann_steering_controller.cpp src/odometry.cpp)
+add_library(${PROJECT_NAME} src/single_ackermann_controller.cpp src/odometry.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${urdfdom_LIBRARIES})
 
 #############
@@ -80,51 +80,51 @@ if (CATKIN_ENABLE_TESTING)
   target_link_libraries(${PROJECT_NAME}_ackermann_steering_bot ${catkin_LIBRARIES} ${test_LIBRARIES})
 
   add_rostest_gtest(${PROJECT_NAME}_test
-    test/ackermann_steering_controller_test/ackermann_steering_controller.test
-    test/ackermann_steering_controller_test/ackermann_steering_controller_test.cpp)
+    test/single_ackermann_controller_test/single_ackermann_controller.test
+    test/single_ackermann_controller_test/single_ackermann_controller_test.cpp)
   target_link_libraries(${PROJECT_NAME}_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
   add_rostest_gtest(${PROJECT_NAME}_nan_test
-    test/ackermann_steering_controller_nan_test/ackermann_steering_controller_nan.test
-    test/ackermann_steering_controller_nan_test/ackermann_steering_controller_nan_test.cpp)
+    test/single_ackermann_controller_nan_test/single_ackermann_controller_nan.test
+    test/single_ackermann_controller_nan_test/single_ackermann_controller_nan_test.cpp)
   target_link_libraries(${PROJECT_NAME}_nan_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
   add_rostest_gtest(${PROJECT_NAME}_limits_test
-    test/ackermann_steering_controller_limits_test/ackermann_steering_controller_limits.test
-    test/ackermann_steering_controller_limits_test/ackermann_steering_controller_limits_test.cpp)
+    test/single_ackermann_controller_limits_test/single_ackermann_controller_limits.test
+    test/single_ackermann_controller_limits_test/single_ackermann_controller_limits_test.cpp)
   target_link_libraries(${PROJECT_NAME}_limits_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
   add_rostest_gtest(${PROJECT_NAME}_timeout_test
-    test/ackermann_steering_controller_timeout_test/ackermann_steering_controller_timeout.test
-    test/ackermann_steering_controller_timeout_test/ackermann_steering_controller_timeout_test.cpp)
+    test/single_ackermann_controller_timeout_test/single_ackermann_controller_timeout.test
+    test/single_ackermann_controller_timeout_test/single_ackermann_controller_timeout_test.cpp)
   target_link_libraries(${PROJECT_NAME}_timeout_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
-  add_rostest_gtest(ackermann_steering_controller_fail_test
-    test/ackermann_steering_controller_fail_test/ackermann_steering_controller_wrong.test
-    test/ackermann_steering_controller_fail_test/ackermann_steering_controller_fail_test.cpp)
-  target_link_libraries(ackermann_steering_controller_fail_test ${catkin_LIBRARIES} ${test_LIBRARIES})
+  add_rostest_gtest(single_ackermann_controller_fail_test
+    test/single_ackermann_controller_fail_test/single_ackermann_controller_wrong.test
+    test/single_ackermann_controller_fail_test/single_ackermann_controller_fail_test.cpp)
+  target_link_libraries(single_ackermann_controller_fail_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
   add_rostest_gtest(${PROJECT_NAME}_odom_tf_test
-    test/ackermann_steering_controller_odom_tf_test/ackermann_steering_controller_odom_tf.test
-    test/ackermann_steering_controller_odom_tf_test/ackermann_steering_controller_odom_tf_test.cpp)
+    test/single_ackermann_controller_odom_tf_test/single_ackermann_controller_odom_tf.test
+    test/single_ackermann_controller_odom_tf_test/single_ackermann_controller_odom_tf_test.cpp)
   target_link_libraries(${PROJECT_NAME}_odom_tf_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
   add_rostest_gtest(${PROJECT_NAME}_default_odom_frame_test
-    test/ackermann_steering_controller_default_odom_frame_test/ackermann_steering_controller_default_odom_frame.test
-    test/ackermann_steering_controller_default_odom_frame_test/ackermann_steering_controller_default_odom_frame_test.cpp)
+    test/single_ackermann_controller_default_odom_frame_test/single_ackermann_controller_default_odom_frame.test
+    test/single_ackermann_controller_default_odom_frame_test/single_ackermann_controller_default_odom_frame_test.cpp)
   target_link_libraries(${PROJECT_NAME}_default_odom_frame_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
-  add_rostest_gtest(ackermann_steering_controller_odom_frame_test
-    test/ackermann_steering_controller_odom_frame_test/ackermann_steering_controller_odom_frame.test
-    test/ackermann_steering_controller_odom_frame_test/ackermann_steering_controller_odom_frame_test.cpp)
-  target_link_libraries(ackermann_steering_controller_odom_frame_test ${catkin_LIBRARIES} ${test_LIBRARIES})
+  add_rostest_gtest(single_ackermann_controller_odom_frame_test
+    test/single_ackermann_controller_odom_frame_test/single_ackermann_controller_odom_frame.test
+    test/single_ackermann_controller_odom_frame_test/single_ackermann_controller_odom_frame_test.cpp)
+  target_link_libraries(single_ackermann_controller_odom_frame_test ${catkin_LIBRARIES} ${test_LIBRARIES})
 
-  add_rostest(test/ackermann_steering_controller_open_loop_test/ackermann_steering_controller_open_loop.test)
-  add_rostest(test/ackermann_steering_controller_no_wheel_test/ackermann_steering_controller_no_wheel.test)
-  add_rostest(test/ackermann_steering_controller_no_steer_test/ackermann_steering_controller_no_steer.test)
-  add_rostest(test/ackermann_steering_controller_radius_param_test/ackermann_steering_controller_radius_param.test)
-  add_rostest(test/ackermann_steering_controller_radius_param_fail_test/ackermann_steering_controller_radius_param_fail.test)
-  add_rostest(test/ackermann_steering_controller_separation_param_test/ackermann_steering_controller_separation_param.test)
+  add_rostest(test/single_ackermann_controller_open_loop_test/single_ackermann_controller_open_loop.test)
+  add_rostest(test/single_ackermann_controller_no_wheel_test/single_ackermann_controller_no_wheel.test)
+  add_rostest(test/single_ackermann_controller_no_steer_test/single_ackermann_controller_no_steer.test)
+  add_rostest(test/single_ackermann_controller_radius_param_test/single_ackermann_controller_radius_param.test)
+  add_rostest(test/single_ackermann_controller_radius_param_fail_test/single_ackermann_controller_radius_param_fail.test)
+  add_rostest(test/single_ackermann_controller_separation_param_test/single_ackermann_controller_separation_param.test)
 endif()
 
 #############

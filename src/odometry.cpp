@@ -40,11 +40,11 @@
  * Author: Masaru Morita
  */
 
-#include <ackermann_steering_controller/odometry.h>
+#include <single_ackermann_controller/odometry.h>
 
 #include <boost/bind.hpp>
 
-namespace ackermann_steering_controller
+namespace single_ackermann_controller
 {
 namespace bacc = boost::accumulators;
 
